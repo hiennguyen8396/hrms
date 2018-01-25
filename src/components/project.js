@@ -3,21 +3,26 @@ import '../App.css';
 
 
 class Project extends Component {
+	changeContent(value){
+		this.props.contentReceive(value);
+	}
 	render() {
 		return (
-			<div className="o_kanban_view oe_background_grey o_kanban_dashboard o_project_kanban o_emphasize_colors o_kanban_ungrouped">
+			<div className="o_kanban_view oe_background_grey o_kanban_dashboard o_project_kanban o_emphasize_colors o_kanban_ungrouped"
+				onClick = {()=>this.changeContent(2)}
+			>
 				<div className="oe_kanban_color_0 oe_kanban_global_click o_has_icon o_kanban_record">
 					<div className="o_project_kanban_main">
 						<div className="o_kanban_card_content">
 							<div className="o_kanban_primary_left">
 								<div className="o_primary">
-									<span>Cao ốc Minh Long</span>
+									<span>{this.props.project}</span>
 									<span>
 										Mã Trạm:
-										<b><strong>VLG001</strong></b>
+										<b><strong>{this.props.stationId}</strong></b>
 									</span>
 									<span>
-										Địa chỉ: 58 Võ Văn Tần, Quận 3
+										Địa chỉ: {this.props.address}
 									</span>
 								</div>
 							</div>
